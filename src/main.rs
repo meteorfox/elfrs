@@ -115,8 +115,7 @@ struct Opt {
 
 fn main() {
     let opt = Opt::from_args();
-    println!("Transforming file [{:?}]", opt.input_elf);
-    println!("Parsing ELF file...");
+    println!("Parsing ELF file [{:?}]...", opt.input_elf);
 
     // Parse an ELF file
     let mut fd = File::open(opt.input_elf).expect("could not open file");
@@ -194,6 +193,4 @@ fn main() {
         panic!(format!("Extended ABI version `{:x}` not supported", abi));
     }
     println!("{:x}", abi);
-
-    println!("Performing code generation into [{:?}]...", opt.output_elf);
 }
